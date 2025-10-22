@@ -1,88 +1,54 @@
 console.log("JS carregou ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Funções de máscara
-  const maskCPF = (v) =>
-    v.replace(/\D/g, "")
+  // util: aplica máscara enquanto digita
+  function mascarar(input, fn) {
+    if (!input) return;
+    input.addEventListener("input", () => {
+      const digitos = input.value.replace(/\D/g, "");
+      input.value = fn(digitos);
+    });
+  }
+
+  // máscaras
+  const maskCPF = v =>
+    v.replace(/(\d{3})(\d)/, "$1.$2")
      .replace(/(\d{3})(\d)/, "$1.$2")
-     .replace(/(\d{3})(\d)/, "$1.$2")
-     .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+     .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+     .slice(0, 14); // 000.000.000-00
 
-  const maskCEP = (v) =>
-    v.replace(/\D/g, "")
-     .replace(/(\d{5})(\d)/, "$1-$2")
-     .slice(0, 9);
+  const maskCEP = v =>
+    v.replace(/(\d{5})(\d)/, "$1-$2").slice(0, 9); // 00000-000
 
-  const maskPhone = (v) =>
-    v.replace(/\D/g, "")
-     .replace(/(\d{2})(\d)/, "($1) $2")
-     .replace(/(\d{5})(\d{4})$/, "$1-$2")
-     .slice(0, 15);
+  const maskPhone = v =>
+    v.replace(/^(\d{2})(\d)/, "($1) $2")
+     .replace(/(\d{5})(\d{1,4})/, "$1-$2")
+     .slice(0, 15); // (00) 00000-0000
 
-  // Pega campos (ids precisam ser exatamente estes)
-  const cpfInput  = document.getElementById("cpf");
-  const cepInput  = document.getElementById("cep");
-  const telInput  = document.getElementById("telefone");
+  // campos (ids precisam bater com o HTML)
+  const cpf = document.getElementById("cpf");
+  const cep = document.getElementById("cep");
+  const tel = document.getElementById("telefone");
 
-  if (cpfInput)  cpfInput.addEventListener("input", (e) => e.target.value = maskCPF(e.target.value));
-  if (cepInput)  cepInput.addEventListener("input", (e) => e.target.value = maskCEP(e.target.value));
-  if (telInput)  telInput.addEventListener("input", (e) => e.target.value = maskPhone(e.target.value));
+  mascarar(cpf, maskCPF);
+  mascarar(cep, maskCEP);
+  mascarar(tel, maskPhone);
 
-  // Submit com mensagem
+  // envio do formulário: mantém validação nativa
   const form = document.getElementById("form-cadastro");
-  const msg  = document.getElementById("mensagem");
+  const msg  = document.getElementById("msg-sucesso"); // <- esse é o id do seu HTML
+
   if (form && msg) {
-    form.addEventListener("submit", (ev) => {
-      ev.preventDefault();
-      if (form.checkValidity()) {
-        msg.textContent = "✅ Cadastro enviado com sucesso!";
-        msg.style.color = "green";
-        // form.reset(); // descomente se quiser limpar após enviar
-      } else {
-        msg.textContent = "⚠️ Preencha todos os campos corretamente.";
-        msg.style.color = "crimson";
-        form.reportValidity();
+    form.addEventListener("submit", (e) => {
+      if (!form.checkValidity()) {
+        // deixa o HTML5 mostrar os erros
+        return;
       }
+      e.preventDefault();
+      msg.textContent = "✅ Cadastro enviado com sucesso!";
+      msg.style.display = "block";
+      form.reset();
+      setTimeout(() => (msg.style.display = "none"), 4000);
     });
   }
 });
-// Mensagem de sucesso no envio do cadastro
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("form-cadastro");
-  const msg = document.getElementById("msg-sucesso");
-
-  if (!form || !msg) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    msg.textContent = "✅ Cadastro enviado com sucesso!";
-    msg.style.display = "block";
-    form.reset();
-    setTimeout(() => {
-      msg.style.display = "none";
-    }, 4000);
-  });
-});
-// Máscara para CPF
-const cpfInput = document.getElementById("cpf");
-if (cpfInput) {
-  cpfInput.addEventListener("input", (e) => {
-    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-    if (value.length > 11) value = value.slice(0, 11);
-    value = value.replace(/(\d{3})(\d)/, "$1.$2");
-    value = value.replace(/(\d{3})(\d)/, "$1.$2");
-    value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-    e.target.value = value;
-  });
-}
-
-// Máscara para CEP
-const cepInput = document.getElementById("cep");
-if (cepInput) {
-  cepInput.addEventListener("input", (e) => {
-    let value = e.target.value.replace(/\D/g, "");
-    if (value.length > 8) value = value.slice(0, 8);
-    value = value.replace(/(\d{5})(\d)/, "$1-$2");
-    e.target.value = value;
-  });
-}
