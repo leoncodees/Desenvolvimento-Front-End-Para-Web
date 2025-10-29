@@ -272,3 +272,22 @@ if (btnContraste) {
     btnContraste.setAttribute('aria-pressed', String(on));
   });
 }
+// ============================
+// MODO ALTO CONTRASTE (A11Y)
+// ============================
+const botaoContraste = document.getElementById('btnContraste');
+if (botaoContraste) {
+  botaoContraste.addEventListener('click', () => {
+    const body = document.body;
+    const ativo = body.classList.toggle('hc');
+    botaoContraste.setAttribute('aria-pressed', ativo);
+    // opcional: salvar no localStorage
+    localStorage.setItem('modoContraste', ativo ? 'on' : 'off');
+  });
+
+  // manter o modo ativo ao recarregar
+  if (localStorage.getItem('modoContraste') === 'on') {
+    document.body.classList.add('hc');
+    botaoContraste.setAttribute('aria-pressed', true);
+  }
+}

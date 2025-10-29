@@ -1652,3 +1652,66 @@ body.hc .container {
   outline: 3px solid currentColor;
   outline-offset: 2px;
 }
+/* ===============================
+   MODO ALTO CONTRASTE (A11Y)
+   =============================== */
+body.hc {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.hc a,
+body.hc button {
+  color: #ff0 !important;
+  background-color: #000 !important;
+  border-color: #ff0 !important;
+}
+
+body.hc input,
+body.hc select,
+body.hc textarea {
+  background-color: #111 !important;
+  color: #fff !important;
+  border: 2px solid #ff0 !important;
+}
+
+body.hc .site-header,
+body.hc .site-footer {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border-top: 2px solid #ff0;
+  border-bottom: 2px solid #ff0;
+}
+
+body.hc .card,
+body.hc .hero-projetos,
+body.hc .container {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #ff0;
+}
+
+body.hc .btn.btn-primary {
+  background-color: #ff0 !important;
+  color: #000 !important;
+}
+/* ======== MODO ALTO CONTRASTE ======== */
+.hc {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.hc header,
+.hc footer {
+  background-color: #111 !important;
+}
+
+.hc a {
+  color: #ff0 !important;
+}
+
+.hc button {
+  background-color: #222 !important;
+  color: #fff !important;
+  border: 1px solid #ff0 !important;
+}

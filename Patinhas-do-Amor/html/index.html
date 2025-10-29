@@ -8,11 +8,14 @@
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+  <!-- Skip link (A11y) -->
   <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- HEADER / NAV -->
   <header class="site-header">
     <a class="brand" href="#/"><span>Patinhas do Amor</span></a>
 
-    <nav class="site-nav" aria-label="Navegação principal">
+    <nav class="site-nav" aria-label="Navegação principal" id="primary-nav">
       <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
       <label for="nav-toggle" class="hamburger" aria-label="Abrir menu">
         <span></span><span></span><span></span>
@@ -23,78 +26,71 @@
         <li><a href="cadastro.html">Cadastro</a></li>
       </ul>
     </nav>
+
+    <!-- pode deixar visível ou estilizar depois -->
     <button id="btnContraste" aria-pressed="false">Alto contraste</button>
   </header>
 
-  <!-- 🔥 A SPA vai renderizar AQUI -->
-  <main id="app" class="container"></main>
-
-  <footer class="site-footer">
-    <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
-  </footer>
-
-  <!-- scripts -->
-  <script type="module" src="../js/main.js"></script>
-  <script src="../js/scripts.js"></script>
-</body>
-</html>
-  <div class="content md-span-6"
-    <h1>Adote, ame e transforme vidas</h1>
-    <p>Conheça nossos projetos e participe dessa causa!</p>
-    <p>
-  <a class="btn" href="projetos.html">Ver projetos</a>
-  <a class="btn btn-outline" href="cadastro.html">Quero me cadastrar</a>
-</p>
-  </div>
-
-  <figure class="media md-span-6">
-    <img src="../img/cachorro-fofo.jpg" alt="Campanha de adoção">
-  </figure>
-</section>
-   <section class="container">
-  <div class="cards-grid">
-
-    <!-- CARD 1 — Campanha Ração do Bem -->
-    <article class="card">
-      <div class="badges"><span class="badge-warning">Meta 500kg</span></div>
-      <h3>Campanha Ração do Bem</h3>
-      <p>Ajude com doações de ração e suprimentos para animais de abrigos.</p>
-      <button class="btn btn-primary"
-              type="button"
-              data-open-modal="#modalDoar"
-              data-modal-title="Contribuir com a Campanha Ração do Bem"
-              data-modal-kind="racao">
-        Contribuir
-      </button>
-    </article>
-
-    <!-- CARD 2 — Resgates e tratamentos -->
-    <article class="card">
-      <div class="badges"><span class="badge-success">Ativo</span></div>
-      <h3>Resgates e tratamentos</h3>
-      <p>Participamos de ações de resgate e tratamento de animais em situação de risco e qualquer doação é bem vinda!</p>
-      <button class="btn btn-primary"
-              type="button"
-              data-open-modal="#modalDoar"
-              data-modal-title="Doar para Resgates e Tratamentos"
-              data-modal-kind="dinheiro">
-               Doar
-      </button>
-    </article>
-
-    <!-- CARD 3 — Lar temporário -->
-    <article class="card">
-      <div class="badges">
-        <span class="badge">Adoção</span>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="conteudo" class="container">
+    <section class="grid md-span-12" aria-labelledby="tit-hero">
+      <div class="content md-span-6">
+        <h1 id="tit-hero">Adote, ame e transforme vidas!!</h1>
+        <p>Conheça nossos projetos e participe dessa causa!</p>
+        <p>
+          <a class="btn" href="projetos.html">Ver projetos</a>
+          <a class="btn btn-outline" href="cadastro.html">Quero me cadastrar</a>
+        </p>
       </div>
-      <h3>Lar temporário</h3>
-      <p>Ofereça abrigo temporário a animais resgatados até encontrarem um lar definitivo.</p>
-      <a href="cadastro.html" class="btn btn-outline">Quero ajudar</a>
-    </article>
-  </div> <!-- fecha .cards-grid -->
-</section>
 
- <section aria-labelledby="tit-sobre">
+      <figure class="media md-span-6">
+        <img src="../img/cachorro-fofo.jpg" alt="Campanha de adoção">
+      </figure>
+    </section>
+
+    <section class="container" aria-labelledby="tit-projetos-destaque">
+      <h2 id="tit-projetos-destaque" class="sr-only">Projetos em destaque</h2>
+
+      <div class="cards-grid">
+        <!-- CARD 1 — Campanha Ração do Bem -->
+        <article class="card">
+          <div class="badges"><span class="badge-warning">Meta 500kg</span></div>
+          <h3>Campanha Ração do Bem</h3>
+          <p>Ajude com doações de ração e suprimentos para animais de abrigos.</p>
+          <button class="btn btn-primary"
+                  type="button"
+                  data-open-modal="#modalDoar"
+                  data-modal-title="Contribuir com a Campanha Ração do Bem"
+                  data-modal-kind="racao">
+            Contribuir
+          </button>
+        </article>
+
+        <!-- CARD 2 — Resgates e tratamentos -->
+        <article class="card">
+          <div class="badges"><span class="badge-success">Ativo</span></div>
+          <h3>Resgates e tratamentos</h3>
+          <p>Participamos de ações de resgate e tratamento de animais em situação de risco e qualquer doação é bem vinda!</p>
+          <button class="btn btn-primary"
+                  type="button"
+                  data-open-modal="#modalDoar"
+                  data-modal-title="Doar para Resgates e Tratamentos"
+                  data-modal-kind="dinheiro">
+            Doar
+          </button>
+        </article>
+
+        <!-- CARD 3 — Lar temporário -->
+        <article class="card">
+          <div class="badges"><span class="badge">Adoção</span></div>
+          <h3>Lar temporário</h3>
+          <p>Ofereça abrigo temporário a animais resgatados até encontrarem um lar definitivo.</p>
+          <a href="cadastro.html" class="btn btn-outline">Quero ajudar</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="tit-sobre">
       <h2 id="tit-sobre">Sobre a organização</h2>
       <p>Somos uma ONG sem fins lucrativos focada em acolher animais em situação de risco. Atuamos com resgate, castração, vacinação e adoção responsável.</p>
       <div class="grid-2">
@@ -119,218 +115,120 @@
     </section>
   </main>
 
+  <!-- FOOTER ÚNICO -->
   <footer class="site-footer">
     <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
   </footer>
-  <!-- Modal de Doação -->
-<div id="modalDoar" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titModalDoar">
-    <header id="titModalDoar">Doar ração</header>
-<p>Escolha uma quantidade de ração para doar à campanha Ração do Bem.</p>
-<!-- Opções de quantidade de ração -->
-<div class="opcoes-valor">
-  <label><input type="radio" name="valorDoacao" value="1"> 1kg de ração</label>
-  <label><input type="radio" name="valorDoacao" value="5"> 5kg de ração</label>
-  <label><input type="radio" name="valorDoacao" value="10"> 10kg de ração</label>
-  <label>
-    <input type="radio" name="valorDoacao" value="custom">
-    Outro: <input id="valorCustom" type="number" min="1" step="1" style="width: 60px;"> kg
-  </label>
-</div>
-  <footer>
-      <button class="btn btn-outline" type="button" data-close-modal>Cancelar</button>
-      <button id="btnConfirmarDoacao" class="btn btn-primary" type="button">Confirmar</button>
-    </footer>
+
+  <!-- MODAL DE DOAÇÃO -->
+  <div id="modalDoar" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titModalDoar">
+      <header id="titModalDoar">Doar ração</header>
+      <p>Escolha uma quantidade de ração para doar à campanha Ração do Bem.</p>
+
+      <div class="opcoes-valor"><!-- preenchido via JS --></div>
+
+      <footer>
+        <button class="btn btn-outline" type="button" data-close-modal>Cancelar</button>
+        <button id="btnConfirmarDoacao" class="btn btn-primary" type="button">Confirmar</button>
+      </footer>
+    </div>
   </div>
-</div>
 
-<script>
-  function getValorSelecionado() {
-    const selecionado = document.querySelector('input[name="valorDoacao"]:checked');
-    if (!selecionado) return null;
-    if (selecionado.value === 'custom') {
-      const v = document.getElementById('valorCustom').value.trim();
-      return v ? Number(v) : null;
+  <!-- JS INLINE (somente lógicas desta página) -->
+  <script>
+    // util
+    function limparToastsAntigos(){ document.querySelectorAll('.toast').forEach(t => t.remove()); }
+    function showToast(msg="Ação concluída!"){
+      limparToastsAntigos();
+      const el = Object.assign(document.createElement('div'), { className:'toast', textContent: msg });
+      Object.assign(el.style, {
+        position:'fixed', right:'20px', bottom:'20px', padding:'12px 18px',
+        background:'#333', color:'#fff', fontSize:'14px', borderRadius:'8px',
+        zIndex:'99999', opacity:'0', transition:'opacity .3s ease'
+      });
+      document.body.appendChild(el);
+      requestAnimationFrame(()=> el.style.opacity='1');
+      setTimeout(()=>{ el.style.opacity='0'; setTimeout(()=> el.remove(), 400); }, 2000);
     }
-    return Number(selecionado.value);
-  }
 
-  // ação do botão "Confirmar" do modal
-  document.addEventListener('click', function(e){
-    if (e.target && e.target.id === 'btnConfirmarDoacao') {
-      const valor = getValorSelecionado();
+    function montarConteudoModal(kind, modal){
+      const texto = modal.querySelector('p');
+      const box   = modal.querySelector('.opcoes-valor');
+      if (kind === 'dinheiro'){
+        texto.textContent = 'Escolha um valor para contribuir com os resgates e tratamentos:';
+        box.innerHTML = `
+          <label><input type="radio" name="valorDoacao" value="10"> R$ 10</label>
+          <label><input type="radio" name="valorDoacao" value="20"> R$ 20</label>
+          <label><input type="radio" name="valorDoacao" value="50"> R$ 50</label>
+          <label><input type="radio" name="valorDoacao" value="custom">
+            Outro: R$ <input id="valorCustom" type="number" min="1" step="1" style="width:80px;">
+          </label>`;
+      } else {
+        texto.textContent = 'Escolha uma quantidade de ração para doar à campanha Ração do Bem:';
+        box.innerHTML = `
+          <label><input type="radio" name="valorDoacao" value="1"> 1kg de ração</label>
+          <label><input type="radio" name="valorDoacao" value="5"> 5kg de ração</label>
+          <label><input type="radio" name="valorDoacao" value="10"> 10kg de ração</label>
+          <label><input type="radio" name="valorDoacao" value="custom">
+            Outro: <input id="valorCustom" type="number" min="1" step="1" style="width:60px;"> kg
+          </label>`;
+      }
+    }
 
-      if (!valor || valor <= 0) {
-        showToast('Escolha um valor para doar 🙂');
+    // abertura/fechamento do modal e confirmação
+    document.addEventListener('click', function (e) {
+      const opener = e.target.closest('[data-open-modal]');
+      if (opener){
+        const sel   = opener.getAttribute('data-open-modal') || '#modalDoar';
+        const modal = document.querySelector(sel);
+        if (!modal) return;
+
+        const title = opener.getAttribute('data-modal-title') || 'Doar';
+        const kind  = opener.getAttribute('data-modal-kind')  || 'racao';
+        modal.querySelector('#titModalDoar').textContent = title;
+        modal.dataset.kind = kind;
+        montarConteudoModal(kind, modal);
+
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
         return;
       }
 
-      // fecha o modal
-      const modal = document.getElementById('modalDoar');
-      if (modal) {
+      if (e.target && e.target.hasAttribute('data-close-modal')){
+        const modal = e.target.closest('.modal-backdrop');
+        if (modal){ modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+        return;
+      }
+
+      if (e.target && e.target.id === 'btnConfirmarDoacao'){
+        const modal = document.querySelector('#modalDoar');
+        const kind  = modal?.dataset.kind || 'racao';
+        const sel   = document.querySelector('input[name="valorDoacao"]:checked');
+        if (!sel){ showToast('Escolha um valor para doar 🙂'); return; }
+        const valor = sel.value === 'custom'
+          ? Number(document.getElementById('valorCustom')?.value || 0)
+          : Number(sel.value);
+        if (!valor){ showToast('Escolha um valor para doar 🙂'); return; }
+        showToast(kind === 'dinheiro' ? `Obrigado pela doação de R$ ${valor}!`
+                                      : `Obrigado pela doação de ${valor}kg de ração!`);
         modal.setAttribute('aria-hidden','true');
         document.body.style.overflow = '';
       }
+    });
 
-      // feedback
-      showToast(`Obrigado pela doação de ${valor}kg de ração!`);
-
-      // (opcional) redirecionar:
-      // window.location.href = 'cadastro.html?acao=doar&valor=' + encodeURIComponent(valor);
-      // window.open('https://wa.me/5599999999999?text=' + encodeURIComponent(`Oi! Quero doar R$ ${valor}.`), '_blank');
-      // window.location.href = 'https://seu-link-de-pagamento';
-    }
-  });
-  // toast simples (fallback)
-function showToast(msg) {
-  let el = document.createElement('div');
-  el.textContent = msg;
-  Object.assign(el.style, {
-    position:'fixed', left:'50%', bottom:'24px', transform:'translateX(-50%)',
-    padding:'12px 16px', borderRadius:'8px', background:'#333', color:'#fff',
-    fontSize:'14px', zIndex:'9999'
-  });
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 2200);
-}
-  function montarConteudoModal(kind, modal) {
-    const texto = modal.querySelector('p');
-    const box = modal.querySelector('.opcoes-valor');
-
-    if (kind === 'dinheiro') {
-      texto.textContent = 'Escolha um valor para contribuir com os resgates e tratamentos:';
-      box.innerHTML = `
-        <label><input type="radio" name="valorDoacao" value="10"> R$ 10</label>
-        <label><input type="radio" name="valorDoacao" value="20"> R$ 20</label>
-        <label><input type="radio" name="valorDoacao" value="50"> R$ 50</label>
-        <label>
-          <input type="radio" name="valorDoacao" value="custom">
-          Outro: R$ <input id="valorCustom" type="number" min="1" step="1" style="width:80px;">
-        </label>
-      `;
-    } else {
-      texto.textContent = 'Escolha uma quantidade de ração para doar à campanha Ração do Bem:';
-      box.innerHTML = `
-        <label><input type="radio" name="valorDoacao" value="1"> 1kg de ração</label>
-        <label><input type="radio" name="valorDoacao" value="5"> 5kg de ração</label>
-        <label><input type="radio" name="valorDoacao" value="10"> 10kg de ração</label>
-        <label>
-          <input type="radio" name="valorDoacao" value="custom">
-          Outro: <input id="valorCustom" type="number" min="1" step="1" style="width:60px;"> kg
-        </label>
-      `;
-    }
-  }
-
-  document.addEventListener('click', function (e) {
-    // Abrir modal
-    const opener = e.target.closest('[data-open-modal]');
-    if (opener) {
-      const sel   = opener.getAttribute('data-open-modal') || '#modalDoar';
-      const modal = document.querySelector(sel);
-      if (!modal) return;
-
-      const title = opener.getAttribute('data-modal-title') || 'Doar';
-      const kind  = opener.getAttribute('data-modal-kind')  || 'racao';
-
-      modal.querySelector('#titModalDoar').textContent = title;
-      modal.dataset.kind = kind;              // guardamos o tipo atual
-      montarConteudoModal(kind, modal);       // preenche as opções
-
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      return;
-    }
-
-    // Fechar modal (botão cancelar)
-    if (e.target && e.target.hasAttribute('data-close-modal')) {
-      const modal = e.target.closest('.modal-backdrop');
-      if (modal) {
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
+    // ESC fecha modal
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const m = document.querySelector('.modal-backdrop[aria-hidden="false"]');
+        if (m){ m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
       }
-      return;
-    }
+    });
+  </script>
 
-    // Confirmar
-    if (e.target && e.target.id === 'btnConfirmarDoacao') {
-      const modal = document.querySelector('#modalDoar');
-      const kind  = modal?.dataset.kind || 'racao';
-
-      let valor;
-      const selecionado = document.querySelector('input[name="valorDoacao"]:checked');
-      if (!selecionado) {
-        showToast('Escolha um valor para doar 🙂');
-        return;
-      }
-      if (selecionado.value === 'custom') {
-        const campo = document.getElementById('valorCustom');
-        valor = campo && campo.value ? Number(campo.value) : null;
-      } else {
-        valor = Number(selecionado.value);
-      }
-      if (!valor) {
-        showToast('Escolha um valor para doar 🙂');
-        return;
-      }
-
-      if (kind === 'dinheiro') {
-        showToast(`Obrigado pela doação de R$ ${valor}!`);
-      } else {
-        showToast(`Obrigado pela doação de ${valor}kg de ração!`);
-      }
-
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // ESC fecha modal
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      const m = document.querySelector('.modal-backdrop[aria-hidden="false"]');
-      if (m) { m.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
-    }
-  });
-  // Remove qualquer TOAST velho antes de criar um novo
-function limparToastsAntigos() {
-  document.querySelectorAll('.toast').forEach(t => t.remove());
-}
-
-// TOAST certo, o único que queremos!
-function showToast(msg = "Ação concluída!") {
-  limparToastsAntigos(); // 🔥 NÃO deixa acumular
-  let el = document.createElement('div');
-  el.className = 'toast';
-  el.textContent = msg;
-  Object.assign(el.style, {
-    position:'fixed',
-    right:'20px',
-    bottom:'20px',
-    padding:'12px 18px',
-    background:'#333',
-    color:'#fff',
-    fontSize:'14px',
-    borderRadius:'8px',
-    zIndex:'99999',
-    opacity:'0',
-    transition:'opacity .3s ease'
-  });
-
-  document.body.appendChild(el);
-  requestAnimationFrame(()=> el.style.opacity = '1');
-
-  setTimeout(()=>{
-    el.style.opacity = '0';
-    setTimeout(()=> el.remove(), 400);
-  }, 2000);
-}
-</script>
-<script src="../js/scripts.js" defer></script>
+  <!-- SCRIPTS GERAIS DO SITE -->
+  <script type="module" src="../js/main.js"></script>
+  <!-- JS comum do site (menu, máscaras etc.) -->
+  <script src="../js/scripts.min.js" defer></script>
 </body>
 </html>
-
- 
-
-     
-
