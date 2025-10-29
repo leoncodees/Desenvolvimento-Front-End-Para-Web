@@ -265,3 +265,10 @@ document.addEventListener('click', function (e) {
     form.reset();                    // opcional: limpa o formulário
   });
 })();
+const btnContraste = document.getElementById('btnContraste');
+if (btnContraste) {
+  btnContraste.addEventListener('click', () => {
+    const on = document.body.classList.toggle('hc');
+    btnContraste.setAttribute('aria-pressed', String(on));
+  });
+}

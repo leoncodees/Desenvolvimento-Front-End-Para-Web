@@ -1586,3 +1586,69 @@ main, section, .hero, .container {
 .form-page select:invalid ~ .error {
   display: block;
 }
+/* ===== Modo alto contraste ===== */
+body.hc {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.hc header,
+body.hc nav,
+body.hc footer {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.hc a,
+body.hc button {
+  color: #ff0 !important;
+  background: #000 !important;
+  border-color: #ff0 !important;
+}
+/* ===== Alto contraste (força prioridade) ===== */
+html.hc, body.hc {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* barras/áreas comuns */
+body.hc header,
+body.hc nav,
+body.hc footer,
+body.hc .site-header,
+body.hc .site-footer {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* links e botões legíveis */
+body.hc a,
+body.hc button,
+body.hc .btn,
+body.hc .btn-primary {
+  color: #ff0 !important;
+  background: #000 !important;
+  border-color: #ff0 !important;
+}
+
+/* campos de formulário visíveis */
+body.hc input,
+body.hc select,
+body.hc textarea {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #ff0 !important;
+}
+
+/* cards/sections comuns */
+body.hc .card,
+body.hc section,
+body.hc .container {
+  background: #000 !important;
+  color: #fff !important;
+}
+/* A11y: foco visível universal */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
