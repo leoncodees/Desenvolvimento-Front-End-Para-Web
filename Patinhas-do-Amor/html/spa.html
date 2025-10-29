@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPA — Patinhas do Amor</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="site-nav">
+    <ul>
+      <li><a href="#home" data-route>Início</a></li>
+      <li><a href="#projetos" data-route>Projetos</a></li>
+      <li><a href="#cadastro" data-route>Cadastro</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo" class="container">
+  <!-- O conteúdo das páginas vai aparecer aqui -->
+</main>
+
+<footer class="site-footer">
+  <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
+</footer>
+
+<script type="module">
+  import { HomeTemplate } from "../js/templates/home.js";
+  import { ProjetosTemplate } from "../js/templates/projetos.js";
+  import { CadastroTemplate } from "../js/templates/cadastro.js";
+
+  const main = document.getElementById("conteudo");
+
+  function navegar() {
+    const rota = window.location.hash || "#home";
+
+    if (rota === "#home") main.innerHTML = HomeTemplate;
+    if (rota === "#projetos") main.innerHTML = ProjetosTemplate;
+    if (rota === "#cadastro") main.innerHTML = CadastroTemplate;
+  }
+
+  window.addEventListener("hashchange", navegar);
+  navegar();
+</script>
+
+</body>
+</html>

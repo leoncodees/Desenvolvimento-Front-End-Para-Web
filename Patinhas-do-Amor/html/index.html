@@ -9,31 +9,40 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">
-      <span>Patinhas do Amor</span>
-    </a>
-    <nav class="site-nav" aria-label="Navegação principal">
-  <!-- Botão do hambúrguer -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-  <label for="nav-toggle" class="hamburger" aria-label="Abrir menu">
-    <span></span><span></span><span></span>
-  </label>
+    <a class="brand" href="#/"><span>Patinhas do Amor</span></a>
 
-  <!-- Menu de navegação -->
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="projetos.html">Projetos</a></li>
-    <li><a href="cadastro.html">Cadastro</a></li>
-  </ul>
-</nav>
+    <nav class="site-nav" aria-label="Navegação principal">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </label>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="conteudo" class="container">
-   <section class="hero container md-grid12">
+  <!-- 🔥 A SPA vai renderizar AQUI -->
+  <main id="app" class="container"></main>
+
+  <footer class="site-footer">
+    <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
+  </footer>
+
+  <!-- scripts -->
+  <script type="module" src="../js/main.js"></script>
+  <script src="../js/script.js" defer></script>
+</body>
+</html>
   <div class="content md-span-6">
     <h1>Adote, ame e transforme vidas</h1>
     <p>Conheça nossos projetos e participe dessa causa!</p>
-    <a href="cadastro.html" class="btn">Quero me cadastrar</a>
+    <p>
+  <a class="btn" href="projetos.html">Ver projetos</a>
+  <a class="btn btn-outline" href="cadastro.html">Quero me cadastrar</a>
+</p>
   </div>
 
   <figure class="media md-span-6">
@@ -315,7 +324,7 @@ function showToast(msg = "Ação concluída!") {
   }, 2000);
 }
 </script>
-<script src="../js/script.js"></script>
+<script src="../js/script.js" defer></script>
 </body>
 </html>
 

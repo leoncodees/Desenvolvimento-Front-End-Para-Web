@@ -44,6 +44,10 @@
   <main id="conteudo" class="container form-page">
 <form id="formCadastro" action="#" method="post"
       onsubmit="
+  if (!this.checkValidity()) { 
+    this.reportValidity(); 
+    return false; 
+  }
   const r = document.getElementById('resultado');
   r.textContent = 'Cadastro enviado com sucesso!';
   r.style.color = 'green';
@@ -52,7 +56,6 @@
   setTimeout(() => { r.textContent = ''; r.style.display = 'none'; }, 3000);
   return false;
 "
-novalidate>
 
 
 <!-- ====== SEUS DADOS ====== -->
@@ -255,6 +258,26 @@ novalidate>
       document.addEventListener('DOMContentLoaded', bindMasksNow);
     } else {
       bindMasksNow();
+    }
+  })();
+</script>
+<script>
+  // LocalStorage: salva NOME e EMAIL no submit e pré-preenche ao abrir a página
+  (function () {
+    const form  = document.getElementById('formCadastro');
+    const nome  = document.getElementById('nome');
+    const email = document.getElementById('email');
+
+    // 1) Pré-preencher se houver dados salvos
+    if (nome)  nome.value  = localStorage.getItem('cadastro.nome')  || nome.value || '';
+    if (email) email.value = localStorage.getItem('cadastro.email') || email.value || '';
+
+    // 2) Salvar antes do seu onsubmit inline rodar (captura = true)
+    if (form) {
+      form.addEventListener('submit', function () {
+        if (nome && nome.value.trim())  localStorage.setItem('cadastro.nome',  nome.value.trim());
+        if (email && email.value.trim()) localStorage.setItem('cadastro.email', email.value.trim());
+      }, { capture: true });
     }
   })();
 </script>

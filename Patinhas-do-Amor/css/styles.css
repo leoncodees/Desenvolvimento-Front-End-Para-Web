@@ -1514,3 +1514,75 @@ function limparToastsAntigos() {
     display: flex;
   }
 }
+/* ---- SPA / Navegação: garantir clique no menu ---- */
+.site-header {
+  position: sticky;     /* fica no topo e acima do conteúdo */
+  top: 0;
+  background: #fff;
+  z-index: 1000;        /* acima de heros/sections */
+}
+
+/* menu sempre clicável */
+.site-nav, .site-nav ul, .hamburger {
+  position: relative;
+  z-index: 1001;
+}
+
+/* conteúdo da página NUNCA por cima do header */
+main, section, .hero, .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* se usar input do hambúrguer, evitar overlay gigante */
+.nav-toggle {
+  position: absolute;
+  left: -9999px;  /* escondido, não intercepta cliques */
+}
+
+/* Modais: garantir que os fechados não cubram a tela */
+.modal-backdrop[aria-hidden="true"] { display: none !important; }
+.modal-backdrop[aria-hidden="false"] {
+  display: flex;           /* ou block, conforme seu layout */
+}
+
+/* (opcional) ajuda contra elementos full-screen acidentais */
+*[data-overlay], .hero::before, .hero::after {
+  pointer-events: auto;
+}
+/* ===== Validação suave, sem JS ===== */
+
+/* Esconde os erros por padrão */
+.form-page small.error { 
+  display: none; 
+  color: #d33; 
+  font-size: .75rem; 
+}
+
+/* Bordas quando o usuário realmente erra (navegadores modernos) */
+.form-page :is(input, select):user-invalid {
+  border: 2px solid #d33 !important;
+}
+.form-page :is(input, select):user-valid {
+  border: 2px solid #2c9d2c !important;
+}
+
+/* Fallback para quem não tem :user-invalid (mantém suave) */
+@supports not selector(:user-invalid) {
+  /* marca inválido só depois que o campo tiver algo (evita vermelho enquanto vazio) */
+  .form-page input:invalid:not(:placeholder-shown),
+  .form-page select:invalid {
+    border: 2px solid #d33 !important;
+  }
+  .form-page input:valid,
+  .form-page select:valid {
+    border: 2px solid #2c9d2c !important;
+  }
+}
+
+/* Mostra a mensagem de erro quando o campo está inválido.
+   Usa "~" (irmão geral) para funcionar mesmo se houver .hint no meio. */
+.form-page input:invalid ~ .error,
+.form-page select:invalid ~ .error {
+  display: block;
+}
