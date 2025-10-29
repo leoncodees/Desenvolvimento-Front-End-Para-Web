@@ -42,8 +42,12 @@
     </picture>
   </section>
 
-  <!-- AGORA começa o conteúdo (seu formulário) -->
+  <!-- AGORA começa o conteúdo (formulário) -->
   <main id="conteudo" class="container form-page">
+    <header class="page-header">
+  <h1>Cadastro</h1>
+  <p>Preencha seus dados para participar da ONG Patinhas do Amor.</p>
+</header>
 <form id="formCadastro" action="#" method="post"
       onsubmit="
   if (!this.checkValidity()) { 
@@ -57,7 +61,7 @@
   this.reset();
   setTimeout(() => { r.textContent = ''; r.style.display = 'none'; }, 3000);
   return false;
-"
+">
 
 
 <!-- ====== SEUS DADOS ====== -->
@@ -188,36 +192,46 @@
 </div>
 </form> <!-- fecha o form -->
      </main>
-  <footer class="site-footer">
+ <footer class="site-footer">
     <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
   </footer>
-  <script src="../js/scripts.js"></script>
-  <script>
-    </footer>
-<script src="../js/scripts.js"></script>
-<script>
-  // Força as máscaras só nesta página, independente do script.js
-  (function () {
-    function onlyDigits(v){ return (v||'').replace(/\D/g,''); }
 
-    function maskCPF(v){
-      const d = onlyDigits(v).slice(0,11);
-      return d.replace(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2}).*$/, (m,a,b,c,d2)=>{
-        let out = a;
-        if(b) out += '.'+b;
-        if(c) out += '.'+c;
-        if(d2) out += '-'+d2;
-        return out;
-      });
-    }
-    function maskCEP(v){
-      const d = onlyDigits(v).slice(0,8);
-      return d.replace(/^(\d{0,5})(\d{0,3}).*$/, (m,a,b)=> b ? `${a}-${b}` : a);
-    }
-    function maskPhoneBR(v){
-      const d = onlyDigits(v).slice(0,11);
-      if(d.length <= 10){
-        return d.replace(/^(\d{0,2})(\d{0,4})(\d{0,4}).*$/, (m,a,b,c)=>{
+  <!-- Scripts -->
+  <script src="../js/scripts.js" defer></script>
+
+  <!-- ====== MÁSCARAS (mantém seu código) ====== -->
+  <script>
+    (function () {
+      function onlyDigits(v){ return (v||'').replace(/\D/g,''); }
+
+      function maskCPF(v){
+        const d = onlyDigits(v).slice(0,11);
+        return d.replace(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2}).*$/, (m,a,b,c,d2)=>{
+          let out = a;
+          if(b) out += '.'+b;
+          if(c) out += '.'+c;
+          if(d2) out += '-'+d2;
+          return out;
+        });
+      }
+
+      function maskCEP(v){
+        const d = onlyDigits(v).slice(0,8);
+        return d.replace(/^(\d{0,5})(\d{0,3}).*$/, (m,a,b)=> b ? `${a}-${b}` : a);
+      }
+
+      function maskPhoneBR(v){
+        const d = onlyDigits(v).slice(0,11);
+        if(d.length <= 10){
+          return d.replace(/^(\d{0,2})(\d{0,4})(\d{0,4}).*$/, (m,a,b,c)=>{
+            let out = a ? `(${a}` : '';
+            if(a && a.length===2) out += ') ';
+            if(b) out += b;
+            if(c) out += '-' + c;
+            return out;
+          });
+        }
+        return d.replace(/^(\d{0,2})(\d{0,5})(\d{0,4}).*$/, (m,a,b,c)=>{
           let out = a ? `(${a}` : '';
           if(a && a.length===2) out += ') ';
           if(b) out += b;
@@ -225,64 +239,56 @@
           return out;
         });
       }
-      return d.replace(/^(\d{0,2})(\d{0,5})(\d{0,4}).*$/, (m,a,b,c)=>{
-        let out = a ? `(${a}` : '';
-        if(a && a.length===2) out += ') ';
-        if(b) out += b;
-        if(c) out += '-' + c;
-        return out;
-      });
-    }
 
-    function bindMasksNow(){
-      const tel = document.getElementById('telefone');
-      const cpf = document.getElementById('cpf');
-      const cep = document.getElementById('cep');
+      function bindMasksNow(){
+        const tel = document.getElementById('telefone');
+        const cpf = document.getElementById('cpf');
+        const cep = document.getElementById('cep');
 
-      if(tel){
-        tel.setAttribute('inputmode','tel');
-        tel.maxLength = 15;
-        tel.addEventListener('input', e => e.target.value = maskPhoneBR(e.target.value));
+        if(tel){
+          tel.setAttribute('inputmode','tel');
+          tel.maxLength = 15;
+          tel.addEventListener('input', e => e.target.value = maskPhoneBR(e.target.value));
+        }
+        if(cpf){
+          cpf.setAttribute('inputmode','numeric');
+          cpf.maxLength = 14;
+          cpf.addEventListener('input', e => e.target.value = maskCPF(e.target.value));
+        }
+        if(cep){
+          cep.setAttribute('inputmode','numeric');
+          cep.maxLength = 9;
+          cep.addEventListener('input', e => e.target.value = maskCEP(e.target.value));
+        }
       }
-      if(cpf){
-        cpf.setAttribute('inputmode','numeric');
-        cpf.maxLength = 14;
-        cpf.addEventListener('input', e => e.target.value = maskCPF(e.target.value));
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindMasksNow);
+      } else {
+        bindMasksNow();
       }
-      if(cep){
-        cep.setAttribute('inputmode','numeric');
-        cep.maxLength = 9;
-        cep.addEventListener('input', e => e.target.value = maskCEP(e.target.value));
+    })();
+  </script>
+
+  <!-- ====== LOCALSTORAGE (mantém seu código) ====== -->
+  <script>
+    (function () {
+      const form  = document.getElementById('formCadastro');
+      const nome  = document.getElementById('nome');
+      const email = document.getElementById('email');
+
+      // 1) Pré-preenche se houver dados salvos
+      if (nome)  nome.value  = localStorage.getItem('cadastro.nome')  || nome.value || '';
+      if (email) email.value = localStorage.getItem('cadastro.email') || email.value || '';
+
+      // 2) Salva nome e e-mail ao enviar o formulário
+      if (form) {
+        form.addEventListener('submit', function () {
+          if (nome && nome.value.trim())  localStorage.setItem('cadastro.nome',  nome.value.trim());
+          if (email && email.value.trim()) localStorage.setItem('cadastro.email', email.value.trim());
+        }, { capture: true });
       }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', bindMasksNow);
-    } else {
-      bindMasksNow();
-    }
-  })();
-</script>
-<script>
-  // LocalStorage: salva NOME e EMAIL no submit e pré-preenche ao abrir a página
-  (function () {
-    const form  = document.getElementById('formCadastro');
-    const nome  = document.getElementById('nome');
-    const email = document.getElementById('email');
-
-    // 1) Pré-preencher se houver dados salvos
-    if (nome)  nome.value  = localStorage.getItem('cadastro.nome')  || nome.value || '';
-    if (email) email.value = localStorage.getItem('cadastro.email') || email.value || '';
-
-    // 2) Salvar antes do seu onsubmit inline rodar (captura = true)
-    if (form) {
-      form.addEventListener('submit', function () {
-        if (nome && nome.value.trim())  localStorage.setItem('cadastro.nome',  nome.value.trim());
-        if (email && email.value.trim()) localStorage.setItem('cadastro.email', email.value.trim());
-      }, { capture: true });
-    }
-  })();
-</script>
+    })();
+  </script>
 </body>
-<script src="../js/scripts.js" defer></script>
 </html>
