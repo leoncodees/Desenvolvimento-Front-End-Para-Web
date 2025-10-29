@@ -13,7 +13,7 @@
     <a class="brand" href="index.html">
       <span>Patinhas do Amor</span>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Navegação principal" id="primary-nav">
   <ul>
     <li><a href="index.html">Início</a></li>
 
@@ -30,11 +30,11 @@
 </nav>
 <button id="btnContraste" aria-pressed="false">Alto contraste</button>
   </header>
+<main id="conteudo" class="container">
+  <section class="hero-projetos">
+    <img src="../img/campanha-adocao.webp" alt="Campanha de adoção de animais">
+  </section>
 
-  <main id="conteudo" class="container">
-    <section class="hero-projetos">
-  <img src="../img/campanha-adocao.webp" alt="Campanha de adoção de animais">
-</section>
   <header class="page-header">
     <h1>Projetos sociais</h1>
     <p>Voluntariado, acolhimento e adoção responsável.</p>
@@ -49,13 +49,14 @@
   <section id="racao" class="hero-projetos">
     <h2>Campanha Ração do Bem</h2>
     <p>Recebemos doações de ração para animais resgatados e apoiamos protetores independentes.
-       Toda contribuição faz diferença juntos, mantemos centenas de patinhas alimentadas.</p>
+       Toda contribuição faz diferença; juntos, mantemos centenas de patinhas alimentadas.</p>
   </section>
 
   <section id="lar-temp" class="hero-projetos">
     <h2>Lar temporário</h2>
     <p>Nem sempre conseguimos abrigar todos os resgatados. Lares temporários dão um
-       espaço seguro até a adoção definitiva, essa ajuda é essencial para que os peludos tenham um espaço seguro até encontrarem uma nova família.</p>
+       espaço seguro até a adoção definitiva; essa ajuda é essencial para que os peludos
+       tenham um espaço seguro até encontrarem uma nova família.</p>
   </section>
 
   <section aria-labelledby="tit-como-doar">
@@ -66,25 +67,26 @@
       <li>Vaquinha: link na bio do Instagram.</li>
     </ul>
   </section>
+  
+  <section aria-labelledby="tit-projetos-detalhes">
+    <h2 id="tit-projetos-detalhes" class="sr-only">Detalhes dos projetos</h2>
+    <div class="grid-3">
+      <figure>
+        <img src="../img/projeto-1.jpg" alt="">
+      </figure>
+      <article>
+        <h3>Campanha Ração do Bem</h3>
+        <p>Arrecadamos ração mensalmente para os acolhidos.</p>
+        <p><strong>Como doar:</strong> via Pix, ração física ou vaquinha.</p>
+      </article>
+      <article>
+        <h3>Lar temporário</h3>
+        <p>Famílias acolhem os animais em recuperação por curto período.</p>
+      </article>
+    </div>
+  </section>
 </main>
-      <div class="grid-3">
-        <figure>
-          <img src="../img/projeto-1.jpg" alt="" />
-        </figure>
-        <article>
-          <h3>Campanha Ração do Bem</h3>
-          <p>Arrecadamos ração mensalmente para os acolhidos.</p>
-          <p><strong>Como doar:</strong> via Pix, ração física ou vaquinha.</p>
-        </article>
-        <article>
-          <h3>Lar temporário</h3>
-          <p>Famílias acolhem os animais em recuperação por curto período.</p>
-        </article>
-      </div>
-    </section>
-
-  <footer class="site-footer">
-    <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
+  
   </footer>
 
  <!-- Modal único -->
