@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projetos — ONG Patinhas do Amor</title>
+  <meta name="description" content="Conheça nossos projetos sociais, como doar e participar." />
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="pg-projetos">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span>Patinhas do Amor</span>
+    </a>
+    <nav class="site-nav" aria-label="Navegação principal" id="primary-nav">
+  <ul>
+    <li><a href="index.html">Início</a></li>
+
+    <li class="has-submenu">
+      <a href="projetos.html" aria-current="page">Projetos</a>
+      <ul class="submenu">
+        <li><a href="#resgates">Resgates</a></li>
+        <li><a href="#racao">Ração do Bem</a></li>
+        <li><a href="#lar-temp">Lar temporário</a></li>
+      </ul>
+    </li>
+    <li><a href="cadastro.html">Cadastro</a></li>
+  </ul>
+</nav>
+<button id="btnContraste" aria-pressed="false">Alto contraste</button>
+  </header>
+<main id="conteudo" class="container">
+  <section class="hero-projetos">
+    <img src="./img/campanha-adocao.webp" alt="Campanha de adoção de animais">
+  </section>
+
+  <header class="page-header">
+    <h1>Projetos sociais</h1>
+    <p>Voluntariado, acolhimento e adoção responsável.</p>
+  </header>
+
+  <section id="resgates" class="hero-projetos">
+    <h2>Resgates e tratamentos</h2>
+    <p>Participamos de ações de resgate de animais em situação de risco, oferecendo
+       cuidados veterinários, abrigo temporário e muito amor até a recuperação.</p>
+  </section>
+
+  <section id="racao" class="hero-projetos">
+    <h2>Campanha Ração do Bem</h2>
+    <p>Recebemos doações de ração para animais resgatados e apoiamos protetores independentes.
+       Toda contribuição faz diferença; juntos, mantemos centenas de patinhas alimentadas.</p>
+  </section>
+
+  <section id="lar-temp" class="hero-projetos">
+    <h2>Lar temporário</h2>
+    <p>Nem sempre conseguimos abrigar todos os resgatados. Lares temporários dão um
+       espaço seguro até a adoção definitiva; essa ajuda é essencial para que os peludos
+       tenham um espaço seguro até encontrarem uma nova família.</p>
+  </section>
+
+  <section aria-labelledby="tit-como-doar">
+    <h2 id="tit-como-doar">Como doar</h2>
+    <ul>
+      <li>Pix: doacoes@patinhasdoamor.org</li>
+      <li>Ração/materiais: combine pelo WhatsApp.</li>
+      <li>Vaquinha: link na bio do Instagram.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="tit-projetos-detalhes">
+    <h2 id="tit-projetos-detalhes" class="sr-only">Detalhes dos projetos</h2>
+    <div class="grid-3">
+      <figure>
+        <img src="./img/projeto-1.jpg" alt="">
+      </figure>
+      <article>
+        <h3>Campanha Ração do Bem</h3>
+        <p>Arrecadamos ração mensalmente para os acolhidos.</p>
+        <p><strong>Como doar:</strong> via Pix, ração física ou vaquinha.</p>
+      </article>
+      <article>
+        <h3>Lar temporário</h3>
+        <p>Famílias acolhem os animais em recuperação por curto período.</p>
+      </article>
+    </div>
+  </section>
+</main>
+  
+  </footer>
+
+ <!-- Modal único -->
+<div id="modalDoar" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titModalDoar">
+    <header id="titModalDoar">Doar para a Campanha</header>
+    <p>Escolha um valor para contribuir com a Ração do Bem.</p>
+    <footer>
+      <button class="btn btn-outline" type="button" data-close-modal>Cancelar</button>
+      <button id="btnConfirmarDoacao" class="btn btn-primary" type="button">Confirmar</button>
+    </footer>
+  </div>
+</div>
+
+<script src="./js/scripts.min.js" defer></script>
+</body>
+</html>
+     

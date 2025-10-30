@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro — ONG Patinhas do Amor</title>
+  <meta name="description" content="Cadastre-se para adotar, doar ou ser voluntário." />
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="pg-cadastro">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+  <header class="site-header">
+    <a class="site-brand" href="index.html"><span>Patinhas do Amor</span></a>
+
+    <nav class="site-nav" aria-label="Navegação principal">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
+
+      <ul id="primary-menu">
+        <li><a href="index.html">Início</a></li>
+
+        <li class="has-submenu">
+          <a href="projetos.html">Projetos</a>
+          <button class="submenu-toggle" aria-expanded="false" aria-controls="submenu-projetos">▾</button>
+          <ul class="submenu" id="submenu-projetos">
+            <li><a href="projetos.html#resgates">Resgates</a></li>
+            <li><a href="projetos.html#racao">Ração do Bem</a></li>
+            <li><a href="projetos.html#lar-temp">Lar temporário</a></li>
+          </ul>
+        </li>
+
+        <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+      </ul>
+    </nav>
+    <button id="btnContraste" aria-pressed="false">Alto contraste</button>
+  </header>
+
+  <!-- banner/hero da página de cadastro -->
+  <section class="hero-cadastro">
+    <picture>
+      <source srcset="./img/formulario-adocao.webp" type="image/webp">
+      <img src="./img/formulario-adocao.jpg" alt="Cachorrinho feliz após adoção">
+    </picture>
+  </section>
+
+  <!-- AGORA começa o conteúdo (formulário) -->
+  <main id="conteudo" class="container form-page">
+    <header class="page-header">
+  <h1>Cadastro</h1>
+  <p>Preencha seus dados para participar da ONG Patinhas do Amor.</p>
+</header>
+<form id="formCadastro" action="#" method="post"
+      onsubmit="
+  if (!this.checkValidity()) { 
+    this.reportValidity(); 
+    return false; 
+  }
+  const r = document.getElementById('resultado');
+  r.textContent = 'Cadastro enviado com sucesso!';
+  r.style.color = 'green';
+  r.style.display = 'block';
+  this.reset();
+  setTimeout(() => { r.textContent = ''; r.style.display = 'none'; }, 3000);
+  return false;
+">
+
+
+<!-- ====== SEUS DADOS ====== -->
+  <fieldset class="md-span-12">
+    <legend>Seus dados</legend>
+
+    <div class="form-field md-span-6">
+  <label for="nome">Nome completo</label>
+  <input class="input" id="nome" name="nome" type="text" placeholder="Seu nome" required minlength="3" />
+  <small class="help-error">Informe pelo menos 3 caracteres.</small>
+</div>
+
+    <div class="field md-span-6">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" placeholder="voce@email.com" required />
+      <small class="error" aria-live="polite"></small>
+    </div>
+
+    <div class="field md-span-6">
+      <label for="telefone">Telefone</label>
+      <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required>
+      <small class="hint">Formato aceito: (11) 90000-0000</small>
+      <small class="error" aria-live="polite"></small>
+    </div>
+
+    <div class="field md-span-6">
+      <label for="cpf">CPF</label>
+      <input id="cpf" name="cpf" type="text" placeholder="000.000.000-00" required>
+      <small class="hint">Formato: 000.000.000-00</small>
+      <small class="error" aria-live="polite"></small>
+    </div>
+
+    <div class="field md-span-6">
+      <label for="cep">CEP</label>
+      <input id="cep" name="cep" type="text" placeholder="00000-000" required>
+      <small class="hint">Formato: 00000-000</small>
+      <small class="error" aria-live="polite"></small>
+    </div>
+
+    <div class="field md-span-12">
+      <label for="endereco">Endereço</label>
+      <input id="endereco" name="endereco" type="text" placeholder="Rua, número e complemento" required />
+      <small class="error" aria-live="polite"></small>
+    </div>
+
+    <div class="field md-span-6">
+      <label for="cidade">Cidade</label>
+      <input id="cidade" name="cidade" type="text" placeholder="Sua cidade" required />
+      <small class="error" aria-live="polite"></small>
+    </div>
+
+    <div class="field md-span-6">
+      <label for="estado">Estado</label>
+      <select id="estado" name="estado" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
+        <option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option>
+        <option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option>
+        <option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option>
+        <option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option>
+        <option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option>
+        <option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option>
+        <option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option>
+        <option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+      </select>
+      <small class="error" aria-live="polite"></small>
+    </div>
+  </fieldset>
+
+  <!-- ====== INTERESSE ====== -->
+  <fieldset class="md-span-12">
+    <legend>Interesse</legend>
+    <div class="field md-span-12">
+      <label for="tipo">Quero:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="adotar">Adotar um animal</option>
+        <option value="doar">Doar para a ONG</option>
+        <option value="voluntario">Ser voluntário(a)</option>
+      </select>
+      <small class="error" aria-live="polite"></small>
+    </div>
+  </fieldset>
+
+  <!-- ====== DISPONIBILIDADE ====== -->
+  <fieldset class="md-span-12">
+    <legend>Disponibilidade (voluntariado)</legend>
+    <div class="disponibilidade-grid">
+      <label><input type="checkbox" name="disponibilidade" value="manha"> Manhã</label>
+      <label><input type="checkbox" name="disponibilidade" value="tarde"> Tarde</label>
+      <label><input type="checkbox" name="disponibilidade" value="noite"> Noite</label>
+    </div>
+  </fieldset>
+
+  <!-- ====== DOAÇÃO (OPCIONAL) ====== -->
+  <fieldset class="md-span-12">
+    <legend>Doação (opcional)</legend>
+
+    <div class="field md-span-4">
+      <label for="valor">Valor (R$)</label>
+      <input id="valor" name="valor" type="number" min="1" step="1" inputmode="numeric" />
+    </div>
+
+    <div class="field md-span-8">
+      <span class="label">Forma de pagamento</span>
+      <div class="radio-group">
+        <label class="radio"><input type="radio" name="pagamento" value="pix"> <span>Pix</span></label>
+        <label class="radio"><input type="radio" name="pagamento" value="cartao"> <span>Cartão</span></label>
+        <label class="radio"><input type="radio" name="pagamento" value="boleto"> <span>Boleto</span></label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- ====== LGPD + RESULTADO ====== -->
+  <div class="field md-span-12 lgpd">
+    <label>
+      <input type="checkbox" id="lgpd" required />
+      Concordo em receber contato da ONG (LGPD).
+    </label>
+  </div>
+
+  <p id="resultado" role="status" aria-live="polite" class="md-span-12"></p>
+
+  <!-- ====== BOTÕES ====== -->
+  <div class="botoes-form flex gap-16 md-span-12">
+  <button type="submit" class="btn btn-primary">Enviar cadastro</button>
+  <button type="reset" class="btn btn-outline">Limpar</button>
+</div>
+</form> <!-- fecha o form -->
+     </main>
+ <footer class="site-footer">
+    <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scripts.js" defer></script>
+
+  <!-- ====== MÁSCARAS (mantém seu código) ====== -->
+  <script>
+    (function () {
+      function onlyDigits(v){ return (v||'').replace(/\D/g,''); }
+
+      function maskCPF(v){
+        const d = onlyDigits(v).slice(0,11);
+        return d.replace(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2}).*$/, (m,a,b,c,d2)=>{
+          let out = a;
+          if(b) out += '.'+b;
+          if(c) out += '.'+c;
+          if(d2) out += '-'+d2;
+          return out;
+        });
+      }
+
+      function maskCEP(v){
+        const d = onlyDigits(v).slice(0,8);
+        return d.replace(/^(\d{0,5})(\d{0,3}).*$/, (m,a,b)=> b ? `${a}-${b}` : a);
+      }
+
+      function maskPhoneBR(v){
+        const d = onlyDigits(v).slice(0,11);
+        if(d.length <= 10){
+          return d.replace(/^(\d{0,2})(\d{0,4})(\d{0,4}).*$/, (m,a,b,c)=>{
+            let out = a ? `(${a}` : '';
+            if(a && a.length===2) out += ') ';
+            if(b) out += b;
+            if(c) out += '-' + c;
+            return out;
+          });
+        }
+        return d.replace(/^(\d{0,2})(\d{0,5})(\d{0,4}).*$/, (m,a,b,c)=>{
+          let out = a ? `(${a}` : '';
+          if(a && a.length===2) out += ') ';
+          if(b) out += b;
+          if(c) out += '-' + c;
+          return out;
+        });
+      }
+
+      function bindMasksNow(){
+        const tel = document.getElementById('telefone');
+        const cpf = document.getElementById('cpf');
+        const cep = document.getElementById('cep');
+
+        if(tel){
+          tel.setAttribute('inputmode','tel');
+          tel.maxLength = 15;
+          tel.addEventListener('input', e => e.target.value = maskPhoneBR(e.target.value));
+        }
+        if(cpf){
+          cpf.setAttribute('inputmode','numeric');
+          cpf.maxLength = 14;
+          cpf.addEventListener('input', e => e.target.value = maskCPF(e.target.value));
+        }
+        if(cep){
+          cep.setAttribute('inputmode','numeric');
+          cep.maxLength = 9;
+          cep.addEventListener('input', e => e.target.value = maskCEP(e.target.value));
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindMasksNow);
+      } else {
+        bindMasksNow();
+      }
+    })();
+  </script>
+
+  <!-- ====== LOCALSTORAGE (mantém seu código) ====== -->
+  <script>
+    (function () {
+      const form  = document.getElementById('formCadastro');
+      const nome  = document.getElementById('nome');
+      const email = document.getElementById('email');
+
+      // 1) Pré-preenche se houver dados salvos
+      if (nome)  nome.value  = localStorage.getItem('cadastro.nome')  || nome.value || '';
+      if (email) email.value = localStorage.getItem('cadastro.email') || email.value || '';
+
+      // 2) Salva nome e e-mail ao enviar o formulário
+      if (form) {
+        form.addEventListener('submit', function () {
+          if (nome && nome.value.trim())  localStorage.setItem('cadastro.nome',  nome.value.trim());
+          if (email && email.value.trim()) localStorage.setItem('cadastro.email', email.value.trim());
+        }, { capture: true });
+      }
+    })();
+<script src="./js/scripts.min.js" defer></script>
+ </body>
+</html>
