@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ONG Patinhas do Amor — Início</title>
+  <meta name="description" content="ONG fictícia para atividade da faculdade: adoção, doações e voluntariado." />
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <!-- Skip link (A11y) -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <a class="brand" href="#/"><span>Patinhas do Amor</span></a>
+
+    <nav class="site-nav" aria-label="Navegação principal" id="primary-nav">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </label>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+
+    <!-- pode deixar visível ou estilizar depois -->
+    <button id="btnContraste" aria-pressed="false">Alto contraste</button>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="conteudo" class="container">
+    <section class="grid md-span-12" aria-labelledby="tit-hero">
+      <div class="content md-span-6">
+        <h1 id="tit-hero">Adote, ame e transforme vidas!!</h1>
+        <p>Conheça nossos projetos e participe dessa causa!</p>
+        <p>
+          <a class="btn" href="projetos.html">Ver projetos</a>
+          <a class="btn btn-outline" href="cadastro.html">Quero me cadastrar</a>
+        </p>
+      </div>
+
+      <figure class="media md-span-6">
+        <img src="./img/cachorro-fofo.jpg" alt="Campanha de adoção">
+      </figure>
+    </section>
+
+    <section class="container" aria-labelledby="tit-projetos-destaque">
+      <h2 id="tit-projetos-destaque" class="sr-only">Projetos em destaque</h2>
+
+      <div class="cards-grid">
+        <!-- CARD 1 — Campanha Ração do Bem -->
+        <article class="card">
+          <div class="badges"><span class="badge-warning">Meta 500kg</span></div>
+          <h3>Campanha Ração do Bem</h3>
+          <p>Ajude com doações de ração e suprimentos para animais de abrigos.</p>
+          <button class="btn btn-primary"
+                  type="button"
+                  data-open-modal="#modalDoar"
+                  data-modal-title="Contribuir com a Campanha Ração do Bem"
+                  data-modal-kind="racao">
+            Contribuir
+          </button>
+        </article>
+
+        <!-- CARD 2 — Resgates e tratamentos -->
+        <article class="card">
+          <div class="badges"><span class="badge-success">Ativo</span></div>
+          <h3>Resgates e tratamentos</h3>
+          <p>Participamos de ações de resgate e tratamento de animais em situação de risco e qualquer doação é bem vinda!</p>
+          <button class="btn btn-primary"
+                  type="button"
+                  data-open-modal="#modalDoar"
+                  data-modal-title="Doar para Resgates e Tratamentos"
+                  data-modal-kind="dinheiro">
+            Doar
+          </button>
+        </article>
+
+        <!-- CARD 3 — Lar temporário -->
+        <article class="card">
+          <div class="badges"><span class="badge">Adoção</span></div>
+          <h3>Lar temporário</h3>
+          <p>Ofereça abrigo temporário a animais resgatados até encontrarem um lar definitivo.</p>
+          <a href="cadastro.html" class="btn btn-outline">Quero ajudar</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="tit-sobre">
+      <h2 id="tit-sobre">Sobre a organização</h2>
+      <p>Somos uma ONG sem fins lucrativos focada em acolher animais em situação de risco. Atuamos com resgate, castração, vacinação e adoção responsável.</p>
+      <div class="grid-2">
+        <article>
+          <h3>Transparência</h3>
+          <p>Prestamos contas de campanhas e doações com relatórios trimestrais.</p>
+        </article>
+        <article>
+          <h3>Como ajudar</h3>
+          <p>Doe ração, medicamentos, valor em dinheiro ou o seu tempo como voluntário.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="tit-contato">
+      <h2 id="tit-contato">Contato</h2>
+      <address>
+        <p><strong>E-mail:</strong> contato@patinhasdoamor.org</p>
+        <p><strong>WhatsApp:</strong> (11) 90000-0000</p>
+        <p><strong>Endereço:</strong> Rua das Flores, 123 — São Paulo/SP</p>
+      </address>
+    </section>
+  </main>
+
+  <!-- FOOTER ÚNICO -->
+  <footer class="site-footer">
+    <small>&copy; <span id="ano"></span> Patinhas do Amor — atividade acadêmica.</small>
+  </footer>
+
+  <!-- MODAL DE DOAÇÃO -->
+  <div id="modalDoar" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titModalDoar">
+      <header id="titModalDoar">Doar ração</header>
+      <p>Escolha uma quantidade de ração para doar à campanha Ração do Bem.</p>
+
+      <div class="opcoes-valor"><!-- preenchido via JS --></div>
+
+      <footer>
+        <button class="btn btn-outline" type="button" data-close-modal>Cancelar</button>
+        <button id="btnConfirmarDoacao" class="btn btn-primary" type="button">Confirmar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JS INLINE (somente lógicas desta página) -->
+  <script>
+    // util
+    function limparToastsAntigos(){ document.querySelectorAll('.toast').forEach(t => t.remove()); }
+    function showToast(msg="Ação concluída!"){
+      limparToastsAntigos();
+      const el = Object.assign(document.createElement('div'), { className:'toast', textContent: msg });
+      Object.assign(el.style, {
+        position:'fixed', right:'20px', bottom:'20px', padding:'12px 18px',
+        background:'#333', color:'#fff', fontSize:'14px', borderRadius:'8px',
+        zIndex:'99999', opacity:'0', transition:'opacity .3s ease'
+      });
+      document.body.appendChild(el);
+      requestAnimationFrame(()=> el.style.opacity='1');
+      setTimeout(()=>{ el.style.opacity='0'; setTimeout(()=> el.remove(), 400); }, 2000);
+    }
+
+    function montarConteudoModal(kind, modal){
+      const texto = modal.querySelector('p');
+      const box   = modal.querySelector('.opcoes-valor');
+      if (kind === 'dinheiro'){
+        texto.textContent = 'Escolha um valor para contribuir com os resgates e tratamentos:';
+        box.innerHTML = `
+          <label><input type="radio" name="valorDoacao" value="10"> R$ 10</label>
+          <label><input type="radio" name="valorDoacao" value="20"> R$ 20</label>
+          <label><input type="radio" name="valorDoacao" value="50"> R$ 50</label>
+          <label><input type="radio" name="valorDoacao" value="custom">
+            Outro: R$ <input id="valorCustom" type="number" min="1" step="1" style="width:80px;">
+          </label>`;
+      } else {
+        texto.textContent = 'Escolha uma quantidade de ração para doar à campanha Ração do Bem:';
+        box.innerHTML = `
+          <label><input type="radio" name="valorDoacao" value="1"> 1kg de ração</label>
+          <label><input type="radio" name="valorDoacao" value="5"> 5kg de ração</label>
+          <label><input type="radio" name="valorDoacao" value="10"> 10kg de ração</label>
+          <label><input type="radio" name="valorDoacao" value="custom">
+            Outro: <input id="valorCustom" type="number" min="1" step="1" style="width:60px;"> kg
+          </label>`;
+      }
+    }
+
+    // abertura/fechamento do modal e confirmação
+    document.addEventListener('click', function (e) {
+      const opener = e.target.closest('[data-open-modal]');
+      if (opener){
+        const sel   = opener.getAttribute('data-open-modal') || '#modalDoar';
+        const modal = document.querySelector(sel);
+        if (!modal) return;
+
+        const title = opener.getAttribute('data-modal-title') || 'Doar';
+        const kind  = opener.getAttribute('data-modal-kind')  || 'racao';
+        modal.querySelector('#titModalDoar').textContent = title;
+        modal.dataset.kind = kind;
+        montarConteudoModal(kind, modal);
+
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        return;
+      }
+
+      if (e.target && e.target.hasAttribute('data-close-modal')){
+        const modal = e.target.closest('.modal-backdrop');
+        if (modal){ modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+        return;
+      }
+
+      if (e.target && e.target.id === 'btnConfirmarDoacao'){
+        const modal = document.querySelector('#modalDoar');
+        const kind  = modal?.dataset.kind || 'racao';
+        const sel   = document.querySelector('input[name="valorDoacao"]:checked');
+        if (!sel){ showToast('Escolha um valor para doar 🙂'); return; }
+        const valor = sel.value === 'custom'
+          ? Number(document.getElementById('valorCustom')?.value || 0)
+          : Number(sel.value);
+        if (!valor){ showToast('Escolha um valor para doar 🙂'); return; }
+        showToast(kind === 'dinheiro' ? `Obrigado pela doação de R$ ${valor}!`
+                                      : `Obrigado pela doação de ${valor}kg de ração!`);
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // ESC fecha modal
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const m = document.querySelector('.modal-backdrop[aria-hidden="false"]');
+        if (m){ m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+      }
+    });
+  </script>
+
+  <!-- SCRIPTS GERAIS DO SITE -->
+  <script type="module" src="js/main.js"></script>
+  <!-- JS comum do site (menu, máscaras etc.) -->
+  <script src="./js/scripts.min.js" defer></script>
+</body>
+</html>
