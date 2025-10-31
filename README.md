@@ -9,7 +9,7 @@ O site apresenta a ONG fictícia Patinhas do Amor, com foco em resgates, adoçã
 https://github.com/leoncodees/Desenvolvimento-Front-End-Para-Web/tree/entrega-4￼
 
 💻 Site Publicado (GitHub Pages):
-https://leoncodees.github.io/Desenvolvimento-Front-End-Para-Web/index.html￼
+https://leoncodees.github.io/Desenvolvimento-Front-End-Para-Web/
 
 🧩 Estrutura do Projeto
 
